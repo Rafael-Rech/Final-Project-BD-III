@@ -3,6 +3,7 @@ package com.example.trabalhofinal.domain.model;
 import java.util.Collection;
 import java.util.Date;
 // import java.util.List; //Usava para o atributo titulos
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,6 +13,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Usuario implements UserDetails{
@@ -36,7 +38,8 @@ public class Usuario implements UserDetails{
 
     private Date dataInativacao;
 
-    // Aqui havia o atributo "titulos", mas provavelmente vai ser diferente no nosso tema específico do trabalho
+    @OneToMany(mappedBy = "usuario")
+    private List<Jogo> jogos;
     
     
     public Long getId() {
