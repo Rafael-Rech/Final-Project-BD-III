@@ -12,9 +12,9 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.example.trabalhojogo.common.ConversorData;
-import com.example.trabalhojogo.domain.dto.LoginRequestDTO;
-import com.example.trabalhojogo.domain.dto.LoginResponseDTO;
-import com.example.trabalhojogo.domain.dto.UsuarioResponseDTO;
+import com.example.trabalhojogo.domain.dto.usuario.LoginRequestDTO;
+import com.example.trabalhojogo.domain.dto.usuario.LoginResponseDTO;
+import com.example.trabalhojogo.domain.dto.usuario.UsuarioResponseDTO;
 import com.example.trabalhojogo.domain.model.ErroResposta;
 import com.example.trabalhojogo.domain.model.Usuario;
 import com.fasterxml.jackson.databind.ObjectMapper;

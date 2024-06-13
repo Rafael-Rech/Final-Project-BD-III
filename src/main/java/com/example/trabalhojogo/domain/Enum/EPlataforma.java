@@ -6,7 +6,7 @@ public enum EPlataforma {
     PLAYSTATION5("PlayStation 5"),
     SWITCH("Nintendo Switch"),
     ANDROID("Android"),
-    IOS("IOS");
+    IOS("iOS");
 
     private String valor;
 
