@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.example.trabalhojogo.domain.dto.UsuarioRequestDTO;
-import com.example.trabalhojogo.domain.dto.UsuarioResponseDTO;
+import com.example.trabalhojogo.domain.dto.usuario.UsuarioRequestDTO;
+import com.example.trabalhojogo.domain.dto.usuario.UsuarioResponseDTO;
 import com.example.trabalhojogo.domain.exception.BadRequestException;
 import com.example.trabalhojogo.domain.exception.ResourceNotFoundException;
 import com.example.trabalhojogo.domain.model.Usuario;
@@ -69,7 +69,7 @@ public class UsuarioService implements ICRUDService<UsuarioRequestDTO, UsuarioRe
             throw new BadRequestException("Email e senha são obrigatórios");
         }
         Usuario usuario = mapper.map(dto, Usuario.class);
-        usuario.setSenha(dto.getSenha());
+        usuario.setSenha(passwordEncoder.encode(dto.getSenha()));
         usuario.setId(id);
         usuario.setDataCadastro(usuarioBanco.getDataCadastro());
         usuario.setDataInativacao(usuarioBanco.getDataInativacao());
