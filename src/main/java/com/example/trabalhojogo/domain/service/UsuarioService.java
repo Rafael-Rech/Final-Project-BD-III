@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.trabalhojogo.domain.dto.UsuarioRequestDTO;
@@ -23,6 +24,9 @@ public class UsuarioService implements ICRUDService<UsuarioRequestDTO, UsuarioRe
 
     @Autowired
     private ModelMapper mapper;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
 
     @Override
@@ -52,6 +56,8 @@ public class UsuarioService implements ICRUDService<UsuarioRequestDTO, UsuarioRe
         Usuario usuario = mapper.map(dto, Usuario.class);
         usuario.setDataCadastro(new Date());
         //Criptografar senha
+        String senha = passwordEncoder.encode(usuario.getSenha());
+        usuario.setSenha(senha);
         usuario = usuarioRepository.save(usuario);
         return mapper.map(usuario, UsuarioResponseDTO.class);
     }
@@ -63,6 +69,7 @@ public class UsuarioService implements ICRUDService<UsuarioRequestDTO, UsuarioRe
             throw new BadRequestException("Email e senha são obrigatórios");
         }
         Usuario usuario = mapper.map(dto, Usuario.class);
+        usuario.setSenha(dto.getSenha());
         usuario.setId(id);
         usuario.setDataCadastro(usuarioBanco.getDataCadastro());
         usuario.setDataInativacao(usuarioBanco.getDataInativacao());
