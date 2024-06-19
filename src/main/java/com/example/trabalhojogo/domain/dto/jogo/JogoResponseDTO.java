@@ -9,8 +9,6 @@ public class JogoResponseDTO {
     private String genero;
     private EPlataforma plataforma;
     private Integer ano;
-
-    
     public Long getId() {
         return id;
     }
@@ -46,5 +44,12 @@ public class JogoResponseDTO {
     }
     public void setAno(Integer ano) {
         this.ano = ano;
+    }
+    public Integer getTaxaConclusao() {
+        return taxaConclusao;
+    }
+
+    public void setTaxaConclusao(Integer taxaConclusao) {
+        this.taxaConclusao = taxaConclusao;
     }
 }

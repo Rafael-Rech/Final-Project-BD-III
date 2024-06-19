@@ -9,8 +9,6 @@ public class JogoRequestDTO {
     private String genero;
     private EPlataforma plataforma;
     private Integer ano;
-
-    
     public Long getId() {
         return id;
     }
@@ -47,5 +45,4 @@ public class JogoRequestDTO {
     public void setAno(Integer ano) {
         this.ano = ano;
     }
-
 }

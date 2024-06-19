@@ -31,6 +31,8 @@ public class Jogo {
 
     private Integer ano;
 
+    private Integer taxaConclusao;
+
     @ManyToOne
     @JoinColumn(name="idUsuario")
     private Usuario usuario;
@@ -89,5 +91,13 @@ public class Jogo {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public Integer getTaxaConclusao() {
+        return taxaConclusao;
+    }
+
+    public void setTaxaConclusao(Integer taxaConclusao) {
+        this.taxaConclusao = taxaConclusao;
     }
 }
