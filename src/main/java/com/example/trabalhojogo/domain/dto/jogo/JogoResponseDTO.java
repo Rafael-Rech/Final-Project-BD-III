@@ -9,6 +9,7 @@ public class JogoResponseDTO {
     private String genero;
     private EPlataforma plataforma;
     private Integer ano;
+    private Integer taxaConclusao;
     public Long getId() {
         return id;
     }

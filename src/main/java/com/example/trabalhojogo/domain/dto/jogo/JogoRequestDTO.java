@@ -9,6 +9,14 @@ public class JogoRequestDTO {
     private String genero;
     private EPlataforma plataforma;
     private Integer ano;
+    private Integer taxaConclusao;
+    
+    public Integer getTaxaConclusao() {
+        return taxaConclusao;
+    }
+    public void setTaxaConclusao(Integer taxaConclusao) {
+        this.taxaConclusao = taxaConclusao;
+    }
     public Long getId() {
         return id;
     }
