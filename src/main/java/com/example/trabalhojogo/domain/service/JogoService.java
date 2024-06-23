@@ -38,7 +38,7 @@ public class JogoService implements ICRUDService<JogoRequestDTO, JogoResponseDTO
         }
         Usuario usuario = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if(usuario.getId() != optJogo.get().getUsuario().getId()){
-            throw new ResourceNotFoundException("O centro de custo com o id " + id + " não pertence a este usuário");
+            throw new ResourceNotFoundException("O jogo com o id " + id + " não pertence a este usuário");
         }
         return mapper.map(optJogo.get(), JogoResponseDTO.class);
     }
